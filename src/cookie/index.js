@@ -24,10 +24,10 @@ export const cookie = {
 
     return null;
   },
-  clear (key, domain) {
-    document.cookie = `${key}=;${domain ? `domain=${domain};` : ''}max-age=-1`;
+  clear (key) {
+    document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'name=; expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
     const res = this.get(key);
-
     return !res;
   }
 }
