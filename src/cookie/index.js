@@ -20,7 +20,7 @@ export const getCookie = (key)=> {
  * 设置cookie
  *@param {string} key
  *@param {string} val
- *@param {number} time
+ *@param {number} time 以秒为单位
  */
 export const setCookie = (key, val, time) => {
     let i = time || 0;
@@ -28,9 +28,9 @@ export const setCookie = (key, val, time) => {
     if (i !== 0) {
         let a = new Date();
         a.setTime(a.getTime() + (1e3 * time));
-        o = `; expires=${a.toGMTString()}`;
+        o = `${a.toGMTString()}`;
     }
-    document.cookie = `${key}=${escape(val)}${o};`;
+    document.cookie = `${key}=${escape(val)};expires=${o};path=/`;
 };
 
 /**

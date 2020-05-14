@@ -1,17 +1,13 @@
 # charlie-tools
 
-#### 自动添加版本
-> npm version patch
-
-#### 发布
-> npm publish --access=public
-
-#### 如果没有发布账户
-> npm adduser
+### 使用
+> import { setCookie } from 'charlie-tools'
+>
+> setCookie(name,'charlie',1 * 24 * 60 * 60);
 
 ### tools内容
 1. cookie :
-    - setCookie(key,value)
+    - setCookie(key,value,time) //time以秒为单位
     - getCookie(key)
     - deleteCookie(key)
 
