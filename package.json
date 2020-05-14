@@ -1,7 +1,7 @@
 {
   "name": "charlie-tools",
   "main": "src/index.js",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "commit": "git-cz"
   },
