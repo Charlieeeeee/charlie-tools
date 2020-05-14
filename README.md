@@ -1,13 +1,26 @@
 # charlie-tools
 
 ### 使用
-> import { setCookie } from 'charlie-tools'
+> import { cookie } from 'charlie-tools'
 >
-> setCookie(name,'charlie',1 * 24 * 60 * 60);
+> cookie.set(name,'charlie',{});
 
-### tools内容
+### tools API
+
 1. cookie :
-    - setCookie(key,value,time) //time以秒为单位
-    - getCookie(key)
-    - deleteCookie(key)
+    - cookie.set(key, val, option)
+    > option
+    default value: { domain = '', path = '/', expires = 0, secure = false }
 
+    - cookie.get(key)
+
+    - cookie.clear(key, domain)
+
+2. listener :
+    - addListener(event, fn, dom [, option])
+    > option
+    default value: { capture = false, passive = false, once = false}
+
+    - removeListener(event, fn, dom [, useCapture])
+    > useCapture
+    default value: false

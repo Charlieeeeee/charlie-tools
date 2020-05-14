@@ -13,7 +13,7 @@ export const addListener = (() => {
             eventDOM.attachEvent("on" + event, fn);
         };
     }
-    return (event, fn, dom, option = { capture: false, passive: false, once:false}) => {
+    return (event, fn, dom, { capture = false, passive = false, once = false}) => {
         var eventDOM = dom || window;
         eventDOM.addEventListener(event, fn, {
             capture,
@@ -38,8 +38,7 @@ export const removeListener = (() => {
             eventDOM.detachEvent("on" + event, fn);
         };
     }
-    return (event, fn, dom, useCapture) => {
-        if (useCapture === void 0) { useCapture = false; }
+    return (event, fn, dom, useCapture = false) => {
         var eventDOM = dom || window;
         eventDOM.removeEventListener(event, fn, useCapture);
     };
