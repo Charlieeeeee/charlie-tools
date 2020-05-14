@@ -1,4 +1,8 @@
-
+/**
+ * 获取cookie
+ *@param {string} key
+ *@return {string}
+ */
 export const getCookie = (key)=> {
     const strcookie = document.cookie;//获取cookie字符串
     const arrcookie = strcookie.split('; ');//分割
@@ -11,6 +15,13 @@ export const getCookie = (key)=> {
     }
     return '';
 }
+
+/**
+ * 设置cookie
+ *@param {string} key
+ *@param {string} val
+ *@param {number} time
+ */
 export const setCookie = (key, val, time) => {
     let i = time || 0;
     let o = '';
@@ -22,13 +33,11 @@ export const setCookie = (key, val, time) => {
     document.cookie = `${key}=${escape(val)}${o};`;
 };
 
-export const deleteCookie = (name) => {
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+/**
+ * 删除cookie
+ *@param {string} key
+ */
+export const deleteCookie = (key) => {
+    document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 };
-
-export default {
-    getCookie,
-    setCookie,
-    deleteCookie
-}
