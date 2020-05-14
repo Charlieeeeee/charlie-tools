@@ -8,7 +8,7 @@
 ### tools API
 
 1. cookie :
-    - cookie.set(key, val, option)
+    - cookie.set(key, val [, option])
     > option
     default value: { domain = '', path = '/', expires = 0, secure = false }
 
