@@ -25,7 +25,7 @@ export const cookie = {
     return null;
   },
   clear (key, domain) {
-    document.cookie = `${key}="";${domain ? `domain=${domain};` : ''}max-age=-1`;
+    document.cookie = `${key}=;${domain ? `domain=${domain};` : ''}max-age=-1`;
     const res = this.get(key);
 
     return !res;
