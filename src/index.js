@@ -1,2 +1,3 @@
-export {getCookie, setCookie, deleteCookie} from './cookie';
+export { handleStorage } from './storage';
+export { addListener, removeListener } from './listener';
 
