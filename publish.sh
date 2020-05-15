@@ -6,6 +6,10 @@ git commit -m "$1"
 
 git push
 
-git version patch
+echo "----------提交完成----------"
 
-git publish --access=public
+npm version patch
+
+npm publish --access=public
+
+echo "----------发布完成----------"
