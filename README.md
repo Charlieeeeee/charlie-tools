@@ -9,18 +9,47 @@
 
 1. cookie :
     - cookie.set(key, val [, option])
-    > option
-    default value: { domain = '', path = '/', expires = 0, secure = false }
+    > __key__
+    type : string
+    __val__
+    type : string
+    __option__
+    type : object
+    default: { domain = '', path = '/', expires = 0, secure = false }
 
     - cookie.get(key)
+    > __key__
+    type : string
 
-    - cookie.clear(key, domain)
+    - cookie.clear(key)
+    > __key__
+    type : string
 
 2. listener :
     - addListener(event, fn, dom [, option])
-    > option
-    default value: { capture = false, passive = false, once = false}
+    > __event__
+    type : string
+    __fn__
+    type : function
+    __dom__
+    type : DOM
+    __option__
+    type : object
+    default: { capture = false, passive = false, once = false}
 
     - removeListener(event, fn, dom [, useCapture])
-    > useCapture
-    default value: false
+    > __event__
+    type : string
+    __fn__
+    type : function
+    __dom__
+    type : DOM
+    __useCapture__
+    default: false
+
+3. copy :
+    - copy(text,cb)
+    > __text__
+    type : string
+    __cb__
+    type : function
