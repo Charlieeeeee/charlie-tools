@@ -1,4 +1,4 @@
-### 发布流程
+### 发布流程 sh publish.sh
 
 git add .
 
