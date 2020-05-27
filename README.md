@@ -62,3 +62,11 @@
     __time__
     type : Date
     example: new Date()
+5. groupArray :
+    - groupArray(arr,len);
+    > __arr__
+    type : array
+    example: [1,2,3,4]
+    __len__
+    type : number
+    example: 2
