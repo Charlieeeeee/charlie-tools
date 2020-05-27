@@ -1,6 +1,7 @@
 # charlie-tools
 
-### 使用
+## 使用
+
 > import { cookie } from 'charlie-tools'
 >
 > cookie.set(name,'charlie',{});
@@ -53,3 +54,11 @@
     type : string
     __cb__
     type : function
+4. timeFormat :
+    - timeFormat(pattern,time);
+    > __pattern__
+    type : string
+    example: 'YY-MM-DD hh:mm:ss'
+    __time__
+    type : Date
+    example: new Date()
