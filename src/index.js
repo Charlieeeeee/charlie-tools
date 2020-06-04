@@ -4,3 +4,12 @@ export { copy } from './copy';
 export { timeFormat } from './timeFormat';
 export { groupArray } from './groupArray';
 export { getHash } from './getHash';
+export default {
+    cookie,
+    addListener,
+    removeListener,
+    copy,
+    timeFormat,
+    groupArray,
+    getHash
+}
