@@ -12,7 +12,7 @@ import { timeFormat } from './timeFormat';
 import { groupArray } from './groupArray';
 import { getHash } from './getHash';
 
-export {
+module.exports = {
     cookie,
     addListener,
     removeListener,
@@ -21,12 +21,21 @@ export {
     groupArray,
     getHash
 }
-export default {
-    cookie,
-    addListener,
-    removeListener,
-    copy,
-    timeFormat,
-    groupArray,
-    getHash
-}
+// export {
+//     cookie,
+//     addListener,
+//     removeListener,
+//     copy,
+//     timeFormat,
+//     groupArray,
+//     getHash
+// }
+// export default {
+//     cookie,
+//     addListener,
+//     removeListener,
+//     copy,
+//     timeFormat,
+//     groupArray,
+//     getHash
+// }
