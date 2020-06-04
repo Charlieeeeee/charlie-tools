@@ -16,7 +16,7 @@
     type : string
     __option__
     type : object
-    default: { domain = '', path = '/', expires = 0, secure = false }
+    default: { domain: '', path: '/', expires: 0, secure: false }
 
     - cookie.get(key)
     > __key__
@@ -37,7 +37,7 @@
     type : DOM
     __option__
     type : object
-    default: { capture = false, passive = false, once = false}
+    default: { capture: false, passive: false, once: false}
 
     - removeListener(event, fn, dom [, useCapture])
     > __event__
