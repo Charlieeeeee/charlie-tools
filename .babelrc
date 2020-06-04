@@ -1,0 +1,19 @@
+{
+    "presets": [
+      ["env", {
+        "targets": {
+          "browsers": ["IE >= 9"]
+        },
+        "useBuiltIns": true
+      }]
+    ],
+    "plugins": [
+        "array-includes",
+        ["transform-runtime", {
+          "helpers": true,
+          "polyfill": true,
+          "regenerator": true,
+          "moduleName": "babel-runtime"
+        }]
+      ]
+  }

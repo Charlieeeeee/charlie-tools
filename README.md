@@ -22,9 +22,10 @@
     > __key__
     type : string
 
-    - cookie.clear(key)
+    - cookie.delete(key)
     > __key__
     type : string
+    - cookie.clear()
 
 2. listener :
     - addListener(event, fn, dom [, option])
@@ -67,6 +68,11 @@
     > __arr__
     type : array
     example: [1,2,3,4]
+    __len__
+    type : number
+    example: 2
+6. getHash :
+    - getHash(len);
     __len__
     type : number
     example: 2
