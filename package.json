@@ -1,6 +1,6 @@
 {
   "name": "charlie-tools",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "version": "1.1.5",
   "scripts": {
     "commit": "git-cz",
