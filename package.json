@@ -1,7 +1,7 @@
 {
   "name": "charlie-tools",
   "main": "dist/index.js",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "scripts": {
     "commit": "git-cz",
     "build": "npx webpack --progress --config webpack.config.js"
