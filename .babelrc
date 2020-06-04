@@ -5,7 +5,8 @@
           "browsers": ["IE >= 9"]
         },
         "useBuiltIns": "usage"
-      }]
+      }],
+      "stage-2"
     ],
     "plugins": [
         "array-includes",
