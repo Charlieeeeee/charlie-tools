@@ -1,6 +1,6 @@
 ### 发布流程 sh publish.sh
 
-npm run build
+# npm run build
 
 git add .
 
