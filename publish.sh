@@ -1,6 +1,6 @@
 ### 发布流程 sh publish.sh
 
-npm run build
+babel src --out-dir dist
 
 git add .
 
