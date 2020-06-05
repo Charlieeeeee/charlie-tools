@@ -50,8 +50,8 @@ var cookie = exports.cookie = {
     var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
     if (keys) {
       for (var i = keys.length; i--;) {
-        document.cookie = keys[i] + "=0; expire=" + date.toGMTString() + "; path=/";
-      }
+        document.cookie = keys[i] + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      }document.cookie = keys[i] + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
     }
   }
 };
