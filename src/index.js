@@ -4,7 +4,7 @@ export { copy } from './copy';
 export { timeFormat } from './timeFormat';
 export { groupArray } from './groupArray';
 export { getHash } from './getHash';
-export { toBigger, toSmaller } from './getHash';
+export { toBigger, toSmaller } from './sort';
 
 
 export const qianfen = (numStr)=>{

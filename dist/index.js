@@ -63,16 +63,19 @@ Object.defineProperty(exports, 'getHash', {
         return _getHash.getHash;
     }
 });
+
+var _sort = require('./sort');
+
 Object.defineProperty(exports, 'toBigger', {
     enumerable: true,
     get: function get() {
-        return _getHash.toBigger;
+        return _sort.toBigger;
     }
 });
 Object.defineProperty(exports, 'toSmaller', {
     enumerable: true,
     get: function get() {
-        return _getHash.toSmaller;
+        return _sort.toSmaller;
     }
 });
 var qianfen = exports.qianfen = function qianfen(numStr) {

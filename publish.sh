@@ -10,7 +10,7 @@ git push
 
 echo "----------提交完成----------"
 
-# npm version patch
+npm version patch
 
 npm publish --access=public
 
