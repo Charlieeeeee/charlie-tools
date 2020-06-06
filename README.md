@@ -76,3 +76,17 @@
     __len__
     type : number
     example: 2
+6. qianfen :
+    - qianfen(numStr);
+    __numStr__
+    type : str
+    example: '224324'
+6. sort :
+    - toBigger(arr);
+    __arr__
+    type : array
+    example: [2,3,1]
+    - toSmaller(arr);
+    __arr__
+    type : array
+    example: [2,3,1]
