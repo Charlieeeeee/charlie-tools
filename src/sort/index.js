@@ -16,7 +16,7 @@ const sort = (type) => {
             for(let j = i + 1; j < len; j++){
                 var canSwitch = (type === 'toBigger' && arr[i] > arr[j]) || (type === 'toSmaller' && arr[i] < arr[j]);
                 if(canSwitch){
-                    const temp;
+                    let temp;
                     temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
