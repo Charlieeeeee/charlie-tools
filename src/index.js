@@ -5,8 +5,4 @@ export { timeFormat } from './timeFormat';
 export { groupArray } from './groupArray';
 export { getHash } from './getHash';
 export { toBigger, toSmaller } from './sort';
-
-
-export const qianfen = (numStr)=>{
-    return numStr.replace(/(?!^)(?=(\d{3})+$)/g,',')
-}
+export { Str } from './Str'

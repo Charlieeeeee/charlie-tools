@@ -55,6 +55,7 @@
     type : string
     __cb__
     type : function
+
 4. timeFormat :
     - timeFormat(pattern,time);
     > __pattern__
@@ -63,6 +64,7 @@
     __time__
     type : Date
     example: new Date()
+
 5. groupArray :
     - groupArray(arr,len);
     > __arr__
@@ -71,22 +73,42 @@
     __len__
     type : number
     example: 2
+
 6. getHash :
     - getHash(len);
-    __len__
+    > __len__
     type : number
     example: 2
-7. qianfen :
-    - qianfen(numStr);
-    __numStr__
+
+7. sort :
+    - sort.toBigger(arr);
+    > __arr__
+    type : array
+    example: [2,3,1]
+
+    - sort.toSmaller(arr);
+    >__arr__
+    type : array
+    example: [2,3,1]
+
+8. Str :
+
+    - Str.qianfen(numStr);
+    >__numStr__
     type : str
     example: '224324'
-8. sort :
-    - toBigger(arr);
-    __arr__
-    type : array
-    example: [2,3,1]
-    - toSmaller(arr);
-    __arr__
-    type : array
-    example: [2,3,1]
+
+    - Str.camel(str);
+    > __str__
+    type : str
+    example: 'addNewClass' or 'add-new-class'
+
+    - Str.pascal(str);
+    > __str__
+    type : str
+    example: 'addNewClass' or 'add-new-class'
+
+    - Str.kebab(str);
+    > __str__
+    type : str
+    example: 'addNewClass' or 'add_new_class'
