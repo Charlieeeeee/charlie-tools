@@ -6,9 +6,11 @@
     "commit": "git-cz",
     "test": "jest"
   },
-  "hooks": {
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "pre-commit": "npm run test"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run test"
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
