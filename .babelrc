@@ -1,19 +1,25 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["IE >= 9"]
-      },
-      "useBuiltIns": "usage"
+    ["@babel/preset-env", {
+      "modules": "commonjs"
     }]
   ],
   "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }],
     "array-includes",
-    ["transform-runtime", {
-      "helpers": true,
-      "polyfill": true,
-      "regenerator": true,
-      "moduleName": "babel-runtime"
-    }]
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": false,
+        "helpers": true,
+        "regenerator": true,
+        "useESModules": false,
+        "version": "7.0.0-beta.0",
+      }
+    ]
   ]
 }
