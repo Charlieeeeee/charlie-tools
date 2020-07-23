@@ -1,19 +1,19 @@
 {
-    "presets": [
-      ["env", {
-        "targets": {
-          "browsers": ["IE >= 9"]
-        },
-        "useBuiltIns": "usage"
-      }]
-    ],
-    "plugins": [
-        "array-includes",
-        ["transform-runtime", {
-          "helpers": true,
-          "polyfill": true,
-          "regenerator": true,
-          "moduleName": "babel-runtime"
-        }]
-      ]
-  }
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["IE >= 9"]
+      },
+      "useBuiltIns": "usage"
+    }]
+  ],
+  "plugins": [
+    "array-includes",
+    ["transform-runtime", {
+      "helpers": true,
+      "polyfill": true,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }]
+  ]
+}
