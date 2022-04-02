@@ -10,3 +10,4 @@ module.exports = {
     'subject-case': [0, 'never'],
   },
 }
+

@@ -19,6 +19,7 @@ const getQueryObject = (url: string):IAnyObj => {
     return obj
   }
 }
+
 const ct = {
   getQueryObject
 }

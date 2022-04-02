@@ -2,17 +2,12 @@
   "name": "charlie-tools",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup --config rollup.config.ts",
-    "lint": "npx eslint ./src/index.ts",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "src/*.{js,ts,tsx,jsx}": [
-      "npm run lint"
-    ]
+    "lint": "npx eslint ./src",
+    "prepare": "husky install",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +25,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.7",
+    "jest": "^27.5.1",
     "prettier": "^2.6.0"
   }
 }
