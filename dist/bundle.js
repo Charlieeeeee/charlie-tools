@@ -73,14 +73,14 @@
         }
         return tmpFmt;
     };
-    var ct = {
-        getQueryObject: getQueryObject,
-        copyTexts: copyTexts,
-        formatTime: formatTime
-    };
+    // const ct = {
+    //   getQueryObject,
+    //   copyTexts,
+    //   formatTime
+    // }
+    // export default ct
 
     exports.copyTexts = copyTexts;
-    exports["default"] = ct;
     exports.formatTime = formatTime;
     exports.getQueryObject = getQueryObject;
 
