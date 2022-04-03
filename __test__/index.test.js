@@ -12,5 +12,5 @@ test('用 formatTime 格式化时间', () => {
   const t3 = ct.formatTime('2022/12/12 10:00:00', 'yyyy-MM-dd hh:mm:ss')
   expect(t1).toBe('2022-12-12 10:00:00')
   expect(t2).toBe('2022-12-12 10:00:00')
-  expect(t3).toBe('2022-12-12 10:00:01')
+  expect(t3).toBe('2022-12-12 10:00:00')
 })
