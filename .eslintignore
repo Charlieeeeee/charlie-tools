@@ -4,4 +4,3 @@ dist
 yarn.lock
 .vscode/
 __test__
-jest.config.*

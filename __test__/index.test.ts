@@ -1,4 +1,4 @@
-const { getQueryObject,formatTime  } = require('../dist/bundle.js')
+import { getQueryObject,formatTime  } from '../src/index'
 
 test('用getQueryObject解析url参数', () => {
   const { a, b } = getQueryObject('https://www.baidu.com?a=1&b=2')

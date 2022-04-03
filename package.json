@@ -1,6 +1,6 @@
 {
   "name": "charlie-tools",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "",
   "main": "./dist/bundle.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "eslint": "^8.11.0",
@@ -26,6 +27,7 @@
     "eslint-plugin-import": "^2.25.4",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
-    "prettier": "^2.6.0"
+    "prettier": "^2.6.0",
+    "ts-jest": "^27.1.4"
   }
 }

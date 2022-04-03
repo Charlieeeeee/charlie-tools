@@ -7,7 +7,7 @@ export default {
     {
       file: 'dist/bundle.js',
       name: 'CharlieTools',
-      format: 'umd',
+      format: 'esm',
     }
   ],
   plugins: [
