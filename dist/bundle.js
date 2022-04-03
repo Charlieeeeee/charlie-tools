@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.CharlieTools = factory());
-})(this, (function () { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+    typeof define === 'function' && define.amd ? define(['exports'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.CharlieTools = {}));
+})(this, (function (exports) { 'use strict';
 
     var getQueryObject = function (url) {
         url = (url === null || url === undefined) ? window.location.href : url;
@@ -22,10 +22,68 @@
             return obj;
         }
     };
+    var copyTexts = function (texts) {
+        var textArea = document.createElement('textarea');
+        textArea.innerText = texts;
+        textArea.setAttribute('style', 'height: 0px;');
+        document.body.appendChild(textArea);
+        textArea.select();
+        return new Promise(function (resolve, reject) {
+            if ('execCommand' in document) {
+                document.execCommand('copy');
+                resolve();
+            }
+            else {
+                reject();
+            }
+        });
+    };
+    var formatTime = function (date, fmt) {
+        if (date && typeof date === 'string') {
+            date = date.replace(/-/g, '/'); // 时间格式转换
+            date = new Date(date);
+        }
+        if (date && typeof date === 'number') {
+            date = new Date(date);
+        }
+        else if (!(date instanceof Date)) {
+            date = new Date();
+        }
+        var year = date.getFullYear();
+        var o = {
+            'M+': date.getMonth() + 1,
+            'd+': date.getDate(),
+            'h+': date.getHours(),
+            'm+': date.getMinutes(),
+            's+': date.getSeconds(),
+            'q+': Math.floor((date.getMonth() + 3) / 3),
+            S: date.getMilliseconds() // 毫秒
+        };
+        var tmpFmt = fmt;
+        if (/(y+)/.test(tmpFmt)) {
+            tmpFmt = tmpFmt.replace(RegExp.$1, "".concat(year).substr(4 - RegExp.$1.length));
+        }
+        var keys = Object.keys(o);
+        for (var i = 0; i < keys.length; i++) {
+            var k = keys[i];
+            if (new RegExp("(".concat(k, ")")).test(tmpFmt)) {
+                var len = "".concat(o[k]).length;
+                tmpFmt = tmpFmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : "00".concat(o[k]).substr(len));
+            }
+        }
+        return tmpFmt;
+    };
     var ct = {
-        getQueryObject: getQueryObject
+        getQueryObject: getQueryObject,
+        copyTexts: copyTexts,
+        formatTime: formatTime
     };
 
-    return ct;
+    exports.copyTexts = copyTexts;
+    exports["default"] = ct;
+    exports.formatTime = formatTime;
+    exports.getQueryObject = getQueryObject;
+
+    Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
