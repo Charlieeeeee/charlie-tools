@@ -71,9 +71,9 @@ export const formatTime = (date: Date | string | number, fmt: string): string =>
   return tmpFmt
 }
 
-const ct = {
-  getQueryObject,
-  copyTexts,
-  formatTime
-}
-export default ct
+// const ct = {
+//   getQueryObject,
+//   copyTexts,
+//   formatTime
+// }
+// export default ct
