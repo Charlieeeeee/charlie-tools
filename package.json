@@ -5,7 +5,7 @@
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "rollup --config rollup.config.ts",
-    "lint": "npx eslint ./src",
+    "lint": "npx eslint .",
     "prepare": "husky install",
     "test": "jest"
   },
