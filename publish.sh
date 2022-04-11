@@ -12,7 +12,7 @@ dot="."
 generateTypingFile () {
   tsc ./src/index.ts -d
   rm -rf ./src/index.js
-  mv ./src/index.d.ts ./dist
+  cp ./src/index.d.ts ./dist
 }
 
 generateTypingFile
@@ -71,3 +71,5 @@ then
 else
   echo -e "\033[31m \ngit failed: ${version}\n \033[0m"
 fi
+
+npm publish --access=public

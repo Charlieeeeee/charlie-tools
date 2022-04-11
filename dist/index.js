@@ -99,6 +99,7 @@ var getTypeOf = function (val) {
  * @returns {function}
  */
 var debounce = function (fn, timeout) {
+    if (timeout === void 0) { timeout = 1000; }
     var timer = null;
     return function () {
         if (timer) {
@@ -118,6 +119,7 @@ var debounce = function (fn, timeout) {
  * @returns {function}
  */
 var throttle = function (fn, timeout) {
+    if (timeout === void 0) { timeout = 1000; }
     var timer = null;
     return function () {
         if (!timer) {

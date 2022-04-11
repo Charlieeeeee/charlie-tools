@@ -1,4 +1,4 @@
-import { getQueryObject,formatTime, getTypeOf } from '../index'
+import { getQueryObject,formatTime, getTypeOf, debounce, throttle } from '../index'
 
 test('用getQueryObject解析url参数', () => {
   const query = getQueryObject('https://www.baidu.com?a=1&b=2')
@@ -24,3 +24,12 @@ test('用 getTypeOf 获取类型', () => {
   expect(getTypeOf((/s/))).toBe('RegExp')
   expect(getTypeOf([])).toBe('Array')
 })
+
+test('用 debounce 防抖', () => {
+  expect(getTypeOf(debounce(() => {}))).toBe('Function')
+})
+
+test('用 throttle 节流', () => {
+  expect(getTypeOf(throttle(() => {}))).toBe('Function')
+})
+

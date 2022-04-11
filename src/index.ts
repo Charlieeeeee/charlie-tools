@@ -105,7 +105,7 @@ export const getTypeOf = (val: unknown): string => {
  * @param {number} timeout
  * @returns {function}
  */
-export const debounce = (fn: AnyFn, timeout: number) => {
+export const debounce = (fn: AnyFn, timeout = 1000) => {
   let timer: Timer = null
   return () => {
     if (timer) {
@@ -125,7 +125,7 @@ export const debounce = (fn: AnyFn, timeout: number) => {
  * @param {number} timeout
  * @returns {function}
  */
-export const throttle = (fn: AnyFn, timeout: number) => {
+export const throttle = (fn: AnyFn, timeout = 1000) => {
   let timer: Timer = null
   return () => {
     if (!timer) {
