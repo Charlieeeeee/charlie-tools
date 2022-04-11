@@ -6,3 +6,8 @@ install: npm install
 script: 
   - npm run lint
   - npm test
+
+cache:
+  npm: true
+  directories:
+    - node_modules

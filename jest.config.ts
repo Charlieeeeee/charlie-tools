@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  testMatch: ['<rootDir>/__test__/**/*.(spec|test).ts?(x)'],
+  testMatch: ['<rootDir>/**/__test__/**/*.(spec|test).ts?(x)'],
   transform: {
     // 将.js后缀的文件使用babel-jest处理
     '^.+\\.js$': 'babel-jest',

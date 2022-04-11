@@ -1,3 +1,8 @@
+/**
+ * 获取链接里的query object
+ * @param {string} url
+ * @returns {object}
+ */
 var getQueryObject = function (url) {
     url = (url === null || url === undefined) ? window.location.href : url;
     var search = url.substring(url.lastIndexOf('?') + 1);
@@ -16,6 +21,11 @@ var getQueryObject = function (url) {
         return obj;
     }
 };
+/**
+ * 复制文案
+ * @param {string} texts
+ * @returns {Promise}
+ */
 var copyTexts = function (texts) {
     var textArea = document.createElement('textarea');
     textArea.innerText = texts;
@@ -25,6 +35,7 @@ var copyTexts = function (texts) {
     return new Promise(function (resolve, reject) {
         if ('execCommand' in document) {
             document.execCommand('copy');
+            document.body.removeChild(textArea);
             resolve();
         }
         else {
@@ -32,6 +43,12 @@ var copyTexts = function (texts) {
         }
     });
 };
+/**
+ * 格式化时间
+ * @param {Date | string | number} date
+ * @param {string} fmt
+ * @returns
+ */
 var formatTime = function (date, fmt) {
     if (date && typeof date === 'string') {
         date = date.replace(/-/g, '/'); // 时间格式转换
@@ -67,5 +84,50 @@ var formatTime = function (date, fmt) {
     }
     return tmpFmt;
 };
+/**
+ *
+ * @param val
+ * @returns {string}
+ */
+var getTypeOf = function (val) {
+    return Object.prototype.toString.call(val).match(/\[object (\w+)\]/)[1];
+};
+/**
+ *  防抖
+ * @param {function} fn
+ * @param {number} timeout
+ * @returns {function}
+ */
+var debounce = function (fn, timeout) {
+    var timer = null;
+    return function () {
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(function () {
+            fn();
+            clearTimeout(timer);
+            timer = null;
+        }, timeout);
+    };
+};
+/**
+ * 节流
+ * @param {function} fn
+ * @param {number} timeout
+ * @returns {function}
+ */
+var throttle = function (fn, timeout) {
+    var timer = null;
+    return function () {
+        if (!timer) {
+            timer = setTimeout(function () {
+                fn();
+                clearTimeout(timer);
+                timer = null;
+            }, timeout);
+        }
+    };
+};
 
-export { copyTexts, formatTime, getQueryObject };
+export { copyTexts, debounce, formatTime, getQueryObject, getTypeOf, throttle };

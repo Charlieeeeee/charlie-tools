@@ -1,10 +1,12 @@
 {
   "name": "charlie-tools",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "",
-  "main": "./dist/bundle.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "rollup --config rollup.config.ts",
+    "release": "npm run build && ./publish.sh",
     "lint": "npx eslint .",
     "prepare": "husky install",
     "test": "jest"
@@ -28,6 +30,7 @@
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "prettier": "^2.6.0",
-    "ts-jest": "^27.1.4"
+    "ts-jest": "^27.1.4",
+    "tslib": "^2.3.1"
   }
 }

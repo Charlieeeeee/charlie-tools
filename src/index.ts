@@ -1,8 +1,15 @@
-interface IAnyObj {
+interface IAnyStringValObj { // 任意值为字符串的对象
   [propName: string]: string
 }
+type Timer = null | NodeJS.Timeout
+type AnyFn = (...params: unknown[]) => unknown
 
-export const getQueryObject = (url: string):IAnyObj => {
+/**
+ * 获取链接里的query object
+ * @param {string} url
+ * @returns {object}
+ */
+export const getQueryObject = (url: string):IAnyStringValObj => {
   url = (url === null || url === undefined) ? window.location.href : url
   const search = url.substring(url.lastIndexOf('?') + 1)
   const obj = {}
@@ -20,6 +27,11 @@ export const getQueryObject = (url: string):IAnyObj => {
   }
 }
 
+/**
+ * 复制文案
+ * @param {string} texts
+ * @returns {Promise}
+ */
 export const copyTexts = (texts: string): Promise<void> => {
   const textArea = document.createElement('textarea')
   textArea.innerText = texts
@@ -29,6 +41,7 @@ export const copyTexts = (texts: string): Promise<void> => {
   return new Promise((resolve, reject) => {
     if ('execCommand' in document) {
       document.execCommand('copy')
+      document.body.removeChild(textArea)
       resolve()
     } else {
       reject()
@@ -36,6 +49,12 @@ export const copyTexts = (texts: string): Promise<void> => {
   })
 }
 
+/**
+ * 格式化时间
+ * @param {Date | string | number} date
+ * @param {string} fmt
+ * @returns
+ */
 export const formatTime = (date: Date | string | number, fmt: string): string => {
   if (date && typeof date === 'string') {
     date = date.replace(/-/g, '/') // 时间格式转换
@@ -69,4 +88,52 @@ export const formatTime = (date: Date | string | number, fmt: string): string =>
     }
   }
   return tmpFmt
+}
+
+/**
+ *
+ * @param val
+ * @returns {string}
+ */
+export const getTypeOf = (val: unknown): string => {
+  return Object.prototype.toString.call(val).match(/\[object (\w+)\]/)[1]
+}
+
+/**
+ *  防抖
+ * @param {function} fn
+ * @param {number} timeout
+ * @returns {function}
+ */
+export const debounce = (fn: AnyFn, timeout: number) => {
+  let timer: Timer = null
+  return () => {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      fn()
+      clearTimeout(timer)
+      timer = null
+    }, timeout)
+  }
+}
+
+/**
+ * 节流
+ * @param {function} fn
+ * @param {number} timeout
+ * @returns {function}
+ */
+export const throttle = (fn: AnyFn, timeout: number) => {
+  let timer: Timer = null
+  return () => {
+    if (!timer) {
+      timer = setTimeout(() => {
+        fn()
+        clearTimeout(timer)
+        timer = null
+      }, timeout)
+    }
+  }
 }

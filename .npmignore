@@ -1,0 +1,17 @@
+.husky
+.vscode
+node_modules
+src
+.eslintignore
+.eslintrc.js
+.npmignore
+.prettierrc.js
+.travis.yml
+注意.md
+babel.config.ts
+commitlint.config.js
+jest.config.
+package-lock.json
+publish.sh
+rollup.config.ts
+todo.md

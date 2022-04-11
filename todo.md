@@ -11,6 +11,9 @@
    查位置信息；
    加解密；
    时间格式化 ✅
+   防抖 
+   节流 
+   获取类型 ✅
    
 3. typing.d.ts ✅
 4. 怎么升级或者安装指定版本的git ✅
@@ -18,4 +21,6 @@
 5. 用vuepress写一个api文档
 6. 配置一个自己的eslint rules然后发布一下
 7. 发npm 包 ✅
-8. jest 支持esm 
+8. jest 支持esm ✅ [参考](https://www.cnblogs.com/xueyoucd/p/10495922.html)
+9. 只将部分代码发npm ✅ .npmignore
+10. travis自动发npm
