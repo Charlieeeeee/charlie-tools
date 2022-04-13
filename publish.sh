@@ -61,8 +61,8 @@ updateVersion () {
 updateVersion
 
 deployDocs () {
+  rm -rf ./../charlie-tools-docs
   mkdir ./../charlie-tools-docs
-  rm -rf ./../charlie-tools-docs/
   cp -r ./docs/.vitepress/dist/ ./../charlie-tools-docs/
   cd ./../charlie-tools-docs/
   git init
@@ -71,6 +71,7 @@ deployDocs () {
   git commit -m "chore: update docs"
   git branch -m docs
   git push --force origin docs
+  echo ""
   cd ../charlie-tools/
 }
 
