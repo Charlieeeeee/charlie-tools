@@ -20,7 +20,7 @@ after_script:
   - git config user.email "977503861@qq.com"
   - git add .
   - git commit -m "Update docs"
-  - git push --force origin docs
+  - git push --force --quiet "https://github.com/Charlieeeeee/charlie-tools.git" docs:docs
 # E: Build LifeCycle
 
 branches:
