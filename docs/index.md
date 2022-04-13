@@ -2,7 +2,7 @@
 
 ## 简介
 
-charlie-tools 是一个实用工具库。[文档](https://www.baidu.com?a=1&b=2)
+charlie-tools 是一个实用工具库。[文档](https://charlieeeeee.github.io/charlie-tools/)
 > 遵循 MIT 开源协议发布，并且支持最新的运行环境。 查看各个构件版本的区别并选择一个适合你的版本。
 
 
