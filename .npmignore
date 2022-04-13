@@ -16,3 +16,4 @@ publish.sh
 rollup.config.ts
 todo.md
 jest.config.ts
+docs

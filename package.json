@@ -9,7 +9,10 @@
     "release": "npm run build && ./publish.sh",
     "lint": "npx eslint .",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +34,7 @@
     "jest": "^27.5.1",
     "prettier": "^2.6.0",
     "ts-jest": "^27.1.4",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "vitepress": "^0.22.3"
   }
 }
