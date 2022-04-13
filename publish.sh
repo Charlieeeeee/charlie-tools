@@ -70,7 +70,7 @@ deployDocs () {
   git add .
   git commit -m "chore: update docs"
   git branch -m docs
-  git push --force origin docs
+  git push --force -u origin docs
   echo ""
   cd ../charlie-tools/
 }
