@@ -3,4 +3,4 @@ package-lock.json
 yarn.lock
 todo.md
 注意.md
-dist
+*/dist

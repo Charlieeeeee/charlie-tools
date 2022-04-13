@@ -6,24 +6,8 @@ install: npm install
 script: 
   - npm run lint
   - npm test
-  - npm run docs:build
 
 cache:
   npm: true
   directories:
     - node_modules
-
-after_script:
-  - cd ./docs/.vitepress/dist
-  - git init
-  - git config user.name "chenlichao"
-  - git config user.email "977503861@qq.com"
-  - git remote add origin https://github.com/Charlieeeeee/charlie-tools.git
-  - git add .
-  - git commit -m "Update docs"
-  - git push --force origin docs
-# E: Build LifeCycle
-
-branches:
-  only:
-    - master
