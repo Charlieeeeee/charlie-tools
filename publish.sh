@@ -3,6 +3,7 @@
 # 1.先检测分支
 # 2.更新版本
 # 3.提交代码
+# 4.发npm 包
 
 iterate=$1
 name="[CHARLIE-TOOLS]"
