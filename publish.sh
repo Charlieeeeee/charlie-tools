@@ -60,23 +60,6 @@ updateVersion () {
 
 updateVersion
 
-deployDocs () {
-  rm -rf ./../charlie-tools-docs
-  mkdir ./../charlie-tools-docs
-  cp -r ./docs/.vitepress/dist/ ./../charlie-tools-docs/
-  cd ./../charlie-tools-docs/
-  git init
-  git remote add origin https://github.com/Charlieeeeee/charlie-tools.git
-  git add .
-  git commit -m "chore: update docs"
-  git branch -m docs
-  git push --force -u origin docs
-  echo ""
-  cd ../charlie-tools/
-}
-
-deployDocs
-
 if [ $? -eq 0 ]
 then
   pkjV=$(grep \"version\" package.json)
@@ -90,3 +73,19 @@ else
 fi
 
 npm publish --access=public
+
+deployDocs () {
+  rm -rf ./../charlie-tools-docs
+  mkdir ./../charlie-tools-docs
+  cp -r ./docs/.vitepress/dist/ ./../charlie-tools-docs/
+  cd ./../charlie-tools-docs/
+  git init
+  git remote add origin https://github.com/Charlieeeeee/charlie-tools.git
+  git add .
+  git commit -m "chore: update docs"
+  git branch -m docs
+  git push --force -u origin docs
+  echo ""
+}
+
+deployDocs
