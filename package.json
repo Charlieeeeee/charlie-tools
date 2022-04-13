@@ -6,7 +6,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "rollup --config rollup.config.ts",
-    "release": "npm run build && ./publish.sh",
+    "release": "npm run build && npm run docs:build && ./publish.sh",
     "lint": "npx eslint .",
     "prepare": "husky install",
     "test": "jest",
