@@ -91,7 +91,7 @@ export const formatTime = (date: Date | string | number, fmt: string): string =>
 }
 
 /**
- *
+ * 获取类型
  * @param val
  * @returns {string}
  */

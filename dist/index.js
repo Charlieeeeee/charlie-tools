@@ -85,7 +85,7 @@ var formatTime = function (date, fmt) {
     return tmpFmt;
 };
 /**
- *
+ * 获取类型
  * @param val
  * @returns {string}
  */
