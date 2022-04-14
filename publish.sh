@@ -77,7 +77,7 @@ npm publish --access=public
 deployDocs () {
   rm -rf ./../charlie-tools-docs
   mkdir ./../charlie-tools-docs
-  cp -r ./docs/.vitepress/dist/ ./../charlie-tools-docs/
+  cp -r ./docs/.vuepress/dist/ ./../charlie-tools-docs/
   cd ./../charlie-tools-docs/
   git init
   git remote add origin https://github.com/Charlieeeeee/charlie-tools.git

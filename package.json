@@ -10,9 +10,9 @@
     "lint": "npx eslint .",
     "prepare": "husky install",
     "test": "jest",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:serve": "vuepress serve docs"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,7 @@
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
+    "@vuepress/plugin-back-to-top": "^1.9.7",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
@@ -35,6 +36,6 @@
     "prettier": "^2.6.0",
     "ts-jest": "^27.1.4",
     "tslib": "^2.3.1",
-    "vitepress": "^0.22.3"
+    "vuepress": "^1.9.7"
   }
 }
