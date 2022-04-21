@@ -41,4 +41,15 @@ export declare const debounce: (fn: AnyFn, timeout?: number) => () => void;
  * @returns {function}
  */
 export declare const throttle: (fn: AnyFn, timeout?: number) => () => void;
+/**
+ * 将十六进制颜色转换为具有RGB
+ * @param { string } hex 十六进制颜色代码
+ * @returns RGB 值的字符串
+ */
+export declare const hexToRgb: (hex: string) => string;
+/**
+ * 当页面可见性发生改变
+ * @param { Function } cb
+ */
+export declare const onVisibilityChange: (cb: (isHidden: boolean) => unknown) => void;
 export {};

@@ -1,4 +1,11 @@
-import { getQueryObject,formatTime, getTypeOf, debounce, throttle } from '../index'
+import { 
+  getQueryObject,
+  formatTime, 
+  getTypeOf, 
+  debounce, 
+  throttle,
+  hexToRgb
+} from '../index'
 
 test('用getQueryObject解析url参数', () => {
   const query = getQueryObject('https://www.baidu.com?a=1&b=2')
@@ -31,5 +38,9 @@ test('用 debounce 防抖', () => {
 
 test('用 throttle 节流', () => {
   expect(getTypeOf(throttle(() => {}))).toBe('Function')
+})
+
+test('用 hexToRgb 将16进制颜色转为rgb', () => {
+  expect(hexToRgb('#27ae60')).toBe('rgb(39, 174, 96)')
 })
 

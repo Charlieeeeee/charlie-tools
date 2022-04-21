@@ -4,6 +4,7 @@
 # 2.更新版本
 # 3.提交代码
 # 4.发npm 包
+# 5.部署文档
 
 iterate=$1
 name="[CHARLIE-TOOLS]"
@@ -18,6 +19,7 @@ generateTypingFile () {
 
 generateTypingFile
 
+# 检查版本
 checkBranch () {
   branch=$(git branch | grep \* | cut -d " " -f2)
   if [ "$branch" != "master" ]
@@ -29,6 +31,7 @@ checkBranch () {
 
 checkBranch
 
+# 更新版本
 updateVersion () {
   versionLine=$(grep \"version\" package.json)
   version=$(echo ${versionLine} | tr -cd "[0-9].")
@@ -72,8 +75,10 @@ else
   echo -e "\033[31m \ngit failed: ${version}\n \033[0m"
 fi
 
+# 4.发npm 包
 npm publish --access=public
 
+# 部署文档
 deployDocs () {
   rm -rf ./../charlie-tools-docs
   mkdir ./../charlie-tools-docs

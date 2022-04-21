@@ -131,3 +131,35 @@ export default {
 }
 </script>
 ```
+
+### hexToRgb
+> 将十六进制颜色转换为具有RGB
+
+|  参数   | 类型  |
+|  ----  | ----  |
+| hex | string  |
+
+```js
+import { hexToRgb } from 'charlie-tools'
+hexToRgb('#27ae60')
+// 'rgb(39, 174, 96)'
+```
+
+### onVisibilityChange
+> 当页面可见性发生改变（兼容写法）
+
+|  参数   | 类型  |
+|  ----  | ----  |
+| cb | (isHidden: boolean) => unknown  |
+
+```js
+import { onVisibilityChange } from 'charlie-tools'
+onVisibilityChange(isHidden => {
+  if (isHidden) {
+    console.log('页面隐藏')
+  } else {
+    console.log('页面显示')
+  }
+})
+```
+

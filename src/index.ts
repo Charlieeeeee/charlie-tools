@@ -137,3 +137,37 @@ export const throttle = (fn: AnyFn, timeout = 1000) => {
     }
   }
 }
+
+/**
+ * 将十六进制颜色转换为具有RGB
+ * @param { string } hex 十六进制颜色代码
+ * @returns RGB 值的字符串
+ */
+export const hexToRgb = (hex: string): string => {
+  const extendHex = shortHex =>
+    '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0).split('').map(x => x + x).join('')
+  const extendedHex = hex.slice(hex.startsWith('#') ? 1 : 0).length === 3 ? extendHex(hex) : hex
+  return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${(parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8}, ${parseInt(extendedHex.slice(1), 16) & 0x0000ff})`
+}
+
+/**
+ * 当页面可见性发生改变
+ * @param { Function } cb
+ */
+export const onVisibilityChange = (cb: (isHidden: boolean) => unknown) => {
+  const [hidden, visibilityChange] = 'hidden' in document
+    ? ['hidden', 'visibilitychange']
+    : 'webkitHidden' in document
+      ? ['webkitHidden', 'webkitvisibilitychange']
+      : 'msHidden' in document
+        ? ['msHidden', 'msvisibilitychange']
+        : ['hidden', 'visibilitychange']
+  if (typeof document[hidden] === 'undefined') {
+    console.log('This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.')
+  } else {
+    // 处理页面可见属性的改变
+    document.addEventListener(visibilityChange, () => {
+      cb(document[hidden]) // 传递isHidden：页面是否隐藏
+    }, false)
+  }
+}
