@@ -63,6 +63,9 @@ updateVersion () {
 
 updateVersion
 
+# 拷贝一份README.md到根目录下
+cp ./docs/README.md ./
+
 if [ $? -eq 0 ]
 then
   pkjV=$(grep \"version\" package.json)
@@ -75,7 +78,7 @@ else
   echo -e "\033[31m \ngit failed: ${version}\n \033[0m"
 fi
 
-# 4.发npm 包
+# 发npm 包
 npm publish --access=public
 
 # 部署文档
