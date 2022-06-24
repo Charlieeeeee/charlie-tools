@@ -154,12 +154,15 @@ hexToRgb('#27ae60')
 
 ```js
 import { onVisibilityChange } from 'charlie-tools'
-onVisibilityChange(isHidden => {
+const cancel = onVisibilityChange(isHidden => {
   if (isHidden) {
     console.log('页面隐藏')
   } else {
     console.log('页面显示')
   }
 })
+// 取消监听
+cancel()
 ```
 
+### 

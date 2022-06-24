@@ -4,7 +4,8 @@ import {
   getTypeOf, 
   debounce, 
   throttle,
-  hexToRgb
+  hexToRgb,
+  cMath
 } from '../index'
 
 test('用getQueryObject解析url参数', () => {
@@ -44,3 +45,10 @@ test('用 hexToRgb 将16进制颜色转为rgb', () => {
   expect(hexToRgb('#27ae60')).toBe('rgb(39, 174, 96)')
 })
 
+test('加减乘除', () => {
+  const { add, subtract, multiply, divide } = cMath
+  expect(add(0.1, 0.2)).toBe(0.3)
+  expect(subtract(0.32, 0.2)).toBe(0.12)
+  expect(multiply(0.1, 0.12)).toBe(0.012)
+  expect(divide(0.3, 0.2)).toBe(1.5)
+})

@@ -162,12 +162,94 @@ export const onVisibilityChange = (cb: (isHidden: boolean) => unknown) => {
       : 'msHidden' in document
         ? ['msHidden', 'msvisibilitychange']
         : ['hidden', 'visibilitychange']
+  const callback = () => {
+    cb(document[hidden]) // 传递isHidden：页面是否隐藏
+  }
   if (typeof document[hidden] === 'undefined') {
     console.log('This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.')
   } else {
     // 处理页面可见属性的改变
-    document.addEventListener(visibilityChange, () => {
-      cb(document[hidden]) // 传递isHidden：页面是否隐藏
-    }, false)
+    document.addEventListener(visibilityChange, callback, false)
   }
+  // 返回一个可以取消监听的方法
+  return () => {
+    document.removeEventListener(visibilityChange, callback)
+  }
+}
+
+
+// 获取浮点数去除小数点后得到的整数 例如 1.1 =>  11
+// 以及去除小数点需要要乘以10的多少次幂 例如 1.1 => 1
+const getNumMi = (fl: number) => {
+  const arr = `${fl}`.split('.')
+  const mi = arr[1] ? arr[1].length : 0
+  return {
+    int: +`${fl}`.replace('.', ''),
+    mi
+  }
+}
+
+// 获取两个浮点数的整数，和变成整数所需的10的多少次幂
+const getTwoNumMi = (fl1: number, fl2: number) => {
+  const nm1 = getNumMi(fl1)
+  const nm2 = getNumMi(fl2)
+  const num1 = nm1.int
+  const num2 = nm2.int
+  const mi1 = nm1.mi
+  const mi2 = nm2.mi
+  return {
+    num1, mi1, num2, mi2
+  }
+}
+
+// 加
+const add = (fl1: number, fl2: number) => {
+  let { num1, mi1, num2, mi2 } = getTwoNumMi(fl1, fl2)
+  if (mi1 > mi2) {
+    num2 = num2 * Math.pow(10, mi1 - mi2)
+    return (num2 + num1) / Math.pow(10, mi1)
+  } else {
+    num1 = num1 * Math.pow(10, mi2 - mi1)
+    return (num2 + num1) / Math.pow(10, mi2)
+  }
+}
+
+// 减
+const subtract = (fl1: number, fl2: number) => {
+  let { num1, mi1, num2, mi2 } = getTwoNumMi(fl1, fl2)
+  if (mi1 > mi2) {
+    num2 = num2 * Math.pow(10, mi1 - mi2)
+    return (num1 - num2) / Math.pow(10, mi1)
+  } else {
+    num1 = num1 * Math.pow(10, mi2 - mi1)
+    return (num1 - num2) / Math.pow(10, mi2)
+  }
+}
+
+// 乘
+const multiply = (fl1: number, fl2: number) => {
+  let { num1, mi1, num2, mi2 } = getTwoNumMi(fl1, fl2)
+  if (mi1 > mi2) {
+    num2 = num2 * Math.pow(10, mi1 - mi2)
+    return num1 * num2 / Math.pow(10, mi1 * mi1)
+  } else {
+    num1 = num1 * Math.pow(10, mi2 - mi1)
+    return num1 * num2  / Math.pow(10, mi2 * mi2)
+  }
+}
+
+// 除
+const divide = (fl1: number, fl2: number) => {
+  let { num1, mi1, num2, mi2 } = getTwoNumMi(fl1, fl2)
+  if (mi1 > mi2) {
+    num2 = num2 * Math.pow(10, mi1 - mi2)
+    return num1 / num2
+  } else {
+    num1 = num1 * Math.pow(10, mi2 - mi1)
+    return num1 / num2
+  }
+}
+
+export const cMath = {
+  add, subtract, multiply, divide
 }

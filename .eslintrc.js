@@ -35,5 +35,9 @@ module.exports = {
     'keyword-spacing': 'error',
     'key-spacing': 'error',
     'space-infix-ops': 'error', // 这条规则旨在确保中缀操作员周围有空间。
+    'prefer-const': ['error', {
+      'destructuring': 'all',
+      'ignoreReadBeforeAssign': false
+    }]
   }
 }
