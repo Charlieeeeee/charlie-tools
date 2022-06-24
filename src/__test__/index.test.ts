@@ -50,5 +50,6 @@ test('加减乘除', () => {
   expect(add(0.1, 0.2)).toBe(0.3)
   expect(subtract(0.32, 0.2)).toBe(0.12)
   expect(multiply(0.1, 0.12)).toBe(0.012)
+  expect(multiply(0.11, 0.2)).toBe(0.022)
   expect(divide(0.3, 0.2)).toBe(1.5)
 })
