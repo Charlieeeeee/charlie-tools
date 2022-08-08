@@ -60,11 +60,11 @@ export declare const cMath: {
 };
 export declare const linkMath: {
     res: number;
-    input(num: any): any;
-    add(num: any): any;
-    subtract(num: any): any;
-    multiply(num: any): any;
-    divide(num: any): any;
+    input(num: number): any;
+    add(num: number): any;
+    subtract(num: number): any;
+    multiply(num: number): any;
+    divide(num: number): any;
     getResult(): any;
 };
 /**

@@ -144,8 +144,8 @@ export const throttle = (fn: AnyFn, timeout = 1000) => {
  * @returns RGB 值的字符串
  */
 export const hexToRgb = (hex: string): string => {
-  const extendHex = shortHex =>
-    '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0).split('').map(x => x + x).join('')
+  const extendHex = (shortHex: string) =>
+    '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0).split('').map((x: any) => x + x).join('')
   const extendedHex = hex.slice(hex.startsWith('#') ? 1 : 0).length === 3 ? extendHex(hex) : hex
   return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${(parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8}, ${parseInt(extendedHex.slice(1), 16) & 0x0000ff})`
 }
@@ -250,23 +250,23 @@ export const cMath = {
 
 export const linkMath = {
   res: 0,
-  input (num) {
+  input (num: number) {
     this.res = num
     return this
   },
-  add (num) {
+  add (num: number) {
     this.res = add(this.res, num)
     return this
   },
-  subtract (num) {
+  subtract (num: number) {
     this.res = subtract(this.res, num)
     return this
   },
-  multiply (num) {
+  multiply (num: number) {
     this.res = multiply(this.res, num)
     return this
   },
-  divide (num) {
+  divide (num: number) {
     this.res = divide(this.res, num)
     return this
   },
