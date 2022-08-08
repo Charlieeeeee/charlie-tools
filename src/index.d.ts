@@ -51,5 +51,30 @@ export declare const hexToRgb: (hex: string) => string;
  * 当页面可见性发生改变
  * @param { Function } cb
  */
-export declare const onVisibilityChange: (cb: (isHidden: boolean) => unknown) => void;
+export declare const onVisibilityChange: (cb: (isHidden: boolean) => unknown) => () => void;
+export declare const cMath: {
+    add: (fl1: number, fl2: number) => number;
+    subtract: (fl1: number, fl2: number) => number;
+    multiply: (fl1: number, fl2: number) => number;
+    divide: (fl1: number, fl2: number) => number;
+};
+export declare const linkMath: {
+    res: number;
+    input(num: any): any;
+    add(num: any): any;
+    subtract(num: any): any;
+    multiply(num: any): any;
+    divide(num: any): any;
+    getResult(): any;
+};
+/**
+ * 按照月利率获取贷款还款总额
+ * @param param
+ * @returns 还款总额
+ */
+export declare const getReturnMoney: ({ loan, months, monthRate }: {
+    loan: any;
+    months: any;
+    monthRate: any;
+}) => any;
 export {};

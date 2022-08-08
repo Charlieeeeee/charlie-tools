@@ -247,3 +247,52 @@ const divide = (fl1: number, fl2: number) => {
 export const cMath = {
   add, subtract, multiply, divide
 }
+
+export const linkMath = {
+  res: 0,
+  input (num) {
+    this.res = num
+    return this
+  },
+  add (num) {
+    this.res = add(this.res, num)
+    return this
+  },
+  subtract (num) {
+    this.res = subtract(this.res, num)
+    return this
+  },
+  multiply (num) {
+    this.res = multiply(this.res, num)
+    return this
+  },
+  divide (num) {
+    this.res = divide(this.res, num)
+    return this
+  },
+  getResult () {
+    return this.res
+  }
+}
+
+/**
+ * 按照月利率获取贷款还款总额
+ * @param param
+ * @returns 还款总额
+ */
+export const getReturnMoney = ({
+  loan, // 贷款总额
+  months, // 贷款月数
+  monthRate // 月利率
+}) => {
+  let leftMoney = loan // 剩余还款
+  let interestSum = 0 // 利息
+  const monthBack = leftMoney / months // 每月固定还款
+  let monthInterest = 0 // 当月利息
+  for (let i = months; i > 0; i--) {
+    monthInterest = leftMoney * monthRate
+    interestSum += monthInterest
+    leftMoney = leftMoney - (monthInterest + monthBack)
+  }
+  return loan + interestSum
+}

@@ -5,7 +5,8 @@ import {
   debounce, 
   throttle,
   hexToRgb,
-  cMath
+  cMath,
+  linkMath
 } from '../index'
 
 test('用getQueryObject解析url参数', () => {
@@ -52,4 +53,5 @@ test('加减乘除', () => {
   expect(multiply(0.1, 0.12)).toBe(0.012)
   expect(multiply(0.11, 0.2)).toBe(0.022)
   expect(divide(0.3, 0.2)).toBe(1.5)
+  expect(linkMath.input(1).add(7).subtract(2).multiply(3).divide(9).getResult()).toBe(2)
 })

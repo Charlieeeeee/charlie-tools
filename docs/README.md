@@ -165,4 +165,32 @@ const cancel = onVisibilityChange(isHidden => {
 cancel()
 ```
 
-### 
+### cMath
+> 提供了加、减、乘、除方法, (解决了精度丢失问题)。add, subtract, multiply, divide。
+|  参数   |  类型  |
+|  ----  |  ----  |
+|  num1  | number |
+|  num2  | number |
+
+```js
+import { cMath } from 'charlie-tools'
+cMath.add(0.1, 0.2)
+// 0.3
+cMath.subtract(0.32, 0.2)
+// 0.12
+cMath.multiply(0.1, 0.12)
+// 0.012
+cMath.divide(0.3, 0.2)
+// 1.5
+```
+
+### linkMath 
+> 提供了可链式调用的加、减、乘、除方法, (解决了精度丢失问题)。
+|  参数   |  类型  |
+|  ----  |  ----  |
+|  num1  | number |
+```js
+import { linkMath } from 'charlie-tools'
+linkMath.input(1).add(7).subtract(2).multiply(3).divide(9).getResult()
+// 2
+```
