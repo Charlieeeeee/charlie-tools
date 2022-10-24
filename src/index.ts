@@ -237,11 +237,10 @@ const divide = (fl1: number, fl2: number) => {
   let { num1, mi1, num2, mi2 } = getTwoNumMi(fl1, fl2)
   if (mi1 > mi2) {
     num2 = num2 * Math.pow(10, mi1 - mi2)
-    return num1 / num2
   } else {
     num1 = num1 * Math.pow(10, mi2 - mi1)
-    return num1 / num2
   }
+  return num1 / num2
 }
 
 export const cMath = {
@@ -296,3 +295,6 @@ export const getReturnMoney = ({
   }
   return loan + interestSum
 }
+
+
+export { default as ajax } from './modules/ajax'

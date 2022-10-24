@@ -167,6 +167,7 @@ cancel()
 
 ### cMath
 > 提供了加、减、乘、除方法, (解决了精度丢失问题)。add, subtract, multiply, divide。
+
 |  参数   |  类型  |
 |  ----  |  ----  |
 |  num1  | number |
@@ -186,6 +187,7 @@ cMath.divide(0.3, 0.2)
 
 ### linkMath 
 > 提供了可链式调用的加、减、乘、除方法, (解决了精度丢失问题)。
+
 |  参数   |  类型  |
 |  ----  |  ----  |
 |  num1  | number |
