@@ -6,7 +6,7 @@ deployDocs () {
   cp -r ./docs/.vuepress/dist/ ./../charlie-tools-docs/
   cd ./../charlie-tools-docs/
   git init
-  git remote add origin https://github.com/Charlieeeeee/charlie-tools.git
+  git remote add origin git@github.com:Charlieeeeee/charlie-tools.git
   git add .
   git commit -m "chore: update docs"
   git branch -m docs

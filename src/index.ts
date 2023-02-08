@@ -113,7 +113,7 @@ export const debounce = (fn: AnyFn, timeout = 1000) => {
     }
     timer = setTimeout(() => {
       fn()
-      clearTimeout(timer)
+      clearTimeout(timer as NodeJS.Timeout)
       timer = null
     }, timeout)
   }
@@ -131,7 +131,7 @@ export const throttle = (fn: AnyFn, timeout = 1000) => {
     if (!timer) {
       timer = setTimeout(() => {
         fn()
-        clearTimeout(timer)
+        clearTimeout(timer as NodeJS.Timeout)
         timer = null
       }, timeout)
     }
@@ -298,3 +298,9 @@ export const getReturnMoney = ({
 
 
 export { default as ajax } from './modules/ajax'
+
+export const upperFstLetter = (word: string) => {
+  return word.replace(/^(\w)(\w+)$/, (_, $1, $2) => {
+    return `${$1.toUpperCase()}${$2}`
+  })
+}
