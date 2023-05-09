@@ -77,4 +77,17 @@ export declare const getReturnMoney: ({ loan, months, monthRate }: {
     months: any;
     monthRate: any;
 }) => any;
-export {};
+export { default as ajax } from './modules/ajax';
+/**
+ * 给链接拼接参数
+ * 例如：传入 url: https://www.baidu.com?a=1, params: { b: 2 }
+ * 返回：https://www.baidu.com?a=1&b=2
+ * @param {*} url 原链接
+ * @param {*} params 拼接的参数 { b: 2 }
+ * @returns 一个添加好拼接参数的新链接 https://www.baidu.com?a=1&b=2
+ */
+export declare function concatUrlParam(url: string, params: {
+    [K: string]: string | number;
+}): string;
+export declare function noop(): void;
+export declare function excuteOnce(cb: any): () => void;

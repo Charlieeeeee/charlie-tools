@@ -145,7 +145,7 @@ export const throttle = (fn: AnyFn, timeout = 1000) => {
  */
 export const hexToRgb = (hex: string): string => {
   const extendHex = (shortHex: string) =>
-    '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0).split('').map((x: any) => x + x).join('')
+    '#' + shortHex.slice(shortHex.startsWith('#') ? 1 : 0).split('').map((x: string) => x + x).join('')
   const extendedHex = hex.slice(hex.startsWith('#') ? 1 : 0).length === 3 ? extendHex(hex) : hex
   return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${(parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8}, ${parseInt(extendedHex.slice(1), 16) & 0x0000ff})`
 }
@@ -299,8 +299,35 @@ export const getReturnMoney = ({
 
 export { default as ajax } from './modules/ajax'
 
-export const upperFstLetter = (word: string) => {
-  return word.replace(/^(\w)(\w+)$/, (_, $1, $2) => {
-    return `${$1.toUpperCase()}${$2}`
-  })
+/**
+ * 给链接拼接参数
+ * 例如：传入 url: https://www.baidu.com?a=1, params: { b: 2 }
+ * 返回：https://www.baidu.com?a=1&b=2
+ * @param {*} url 原链接
+ * @param {*} params 拼接的参数 { b: 2 }
+ * @returns 一个添加好拼接参数的新链接 https://www.baidu.com?a=1&b=2
+ */
+export function concatUrlParam(url: string, params: { [K: string]: string | number }) {
+  const paramsStr = Object.entries(params)
+    .map(([key, value]) => `&${key}=${value}`)
+    .join('')
+    .slice(1)
+  const hasHash = url.includes('#/')
+  const hash = url.split('#/')[1]
+  // 如果有hash就检查hash部分的有没有问号，如果没有hash就检查整个链接有没有问号
+  const checkQuesPart = hasHash ? hash : url
+  return `${url}${checkQuesPart.includes('?') ? '&' : '?'}${paramsStr}`
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export function noop() {}
+
+export function excuteOnce(cb) {
+  let count = 0
+  return () => {
+    if (count === 0) {
+      count += 1
+      cb()
+    }
+  }
 }

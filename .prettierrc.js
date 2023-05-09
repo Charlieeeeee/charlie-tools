@@ -1,3 +1,3 @@
 export default {
-  semi: true,
+  semi: false,
 };
