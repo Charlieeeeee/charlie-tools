@@ -12,11 +12,13 @@ import {
 } from '../index'
 
 test('用getQueryObject解析url参数', () => {
-  const query = getQueryObject('https://www.baidu.com?a=1&b=2')
   // toBe使用 Object.is来进行精准匹配的测试。 如果您想要检查对象的值，请使用 toEqual 代替
-  expect(query).toEqual({
+  expect(getQueryObject('https://www.baidu.com?a=1&b=2')).toEqual({
     a: '1',
     b: '2'
+  })
+  expect(getQueryObject('https://www.baidu.com?a=1&b=2/#/about?c=3')).toEqual({
+    c: '3'
   })
 })
 
