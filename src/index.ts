@@ -1,5 +1,5 @@
-interface IAnyStringValObj { // 任意值为字符串的对象
-  [propName: string]: string
+interface IJSON {
+  [propName: string]: string | number
 }
 type Timer = null | NodeJS.Timeout
 type AnyFn = (...params: unknown[]) => unknown
@@ -9,7 +9,7 @@ type AnyFn = (...params: unknown[]) => unknown
  * @param {string} url
  * @returns {object}
  */
-export const getQueryObject = (url: string):IAnyStringValObj => {
+export const getQueryObject = (url: string):IJSON => {
   url = (url === null || url === undefined) ? window.location.href : url
   const search = url.substring(url.lastIndexOf('?') + 1)
   const obj = {}
@@ -299,6 +299,13 @@ export const getReturnMoney = ({
 
 export { default as ajax } from './modules/ajax'
 
+export function query2String(query) {
+  return Object.entries(query)
+    .map(([key, value]) => `&${key}=${value}`)
+    .join('')
+    .slice(1)
+}
+
 /**
  * 给链接拼接参数
  * 例如：传入 url: https://www.baidu.com?a=1, params: { b: 2 }
@@ -308,10 +315,11 @@ export { default as ajax } from './modules/ajax'
  * @returns 一个添加好拼接参数的新链接 https://www.baidu.com?a=1&b=2
  */
 export function concatUrlParam(url: string, params: { [K: string]: string | number }) {
-  const paramsStr = Object.entries(params)
-    .map(([key, value]) => `&${key}=${value}`)
-    .join('')
-    .slice(1)
+  // 如果拼接参数链接里本来就有，就先删掉原本的参数
+  const newKeys = Object.keys(params)
+  url = newKeys.reduce(deleteUrlParam, url)
+
+  const paramsStr = query2String(params)
   const hasHash = url.includes('#/')
   const hash = url.split('#/')[1]
   // 如果有hash就检查hash部分的有没有问号，如果没有hash就检查整个链接有没有问号
@@ -331,3 +339,61 @@ export function excuteOnce(cb) {
     }
   }
 }
+
+// 移除链接上不需要的参数
+export function deleteUrlParam(url, key) {
+  // 如果不包括此参数
+  if (!url || url.indexOf(key) == -1) return url
+  let searchParams: IJSON = {}
+  let hashParams: IJSON = {}
+  const arr_url = url.split('?')
+  const base = arr_url[0]
+  const arr_Hash = url.split('/#/')
+  const searchStr = arr_Hash[0].split('?')[1]
+  const hashStr = arr_Hash[1]
+
+
+  searchParams = getQueryObject(searchStr || '') // 获取search的参数
+  delete searchParams[key]
+
+  let hashPath = ''
+  if (hashStr) {
+    hashParams = getQueryObject(`#/${hashStr}`) // 获取hash的参数
+    delete hashParams[key]
+    hashPath = hashStr.split('?')[0]
+  }
+  const searchQueryStr = query2String(searchParams)
+
+  const hashQueryStr = query2String(hashParams)
+  return `${base}${searchQueryStr ? `?${searchQueryStr}` : ''}${hashStr ? `/#/${hashPath}${hashQueryStr ? `?${hashQueryStr}` : ''}` : ''}`
+}
+
+export class EventBus {
+  events = {}
+  on(eventName: string, cb: AnyFn) {
+    const eventArr = this.events[eventName] || (this.events[eventName] = [])
+    eventArr.push(cb)
+  }
+
+  off(eventName: string, cb: AnyFn) {
+    if (!eventName) {
+      this.events = {}
+      return
+    }
+    const eventArr = this.events[eventName]
+    if (Array.isArray(eventArr)) {
+      if (cb) {
+        eventArr.splice(eventArr.indexOf(cb), 1)
+      } else {
+        this.events[eventName] = null
+      }
+    }
+  }
+
+  emit(eventName: string, params: unknown, context = this) {
+    const eventArr = this.events[eventName] || []
+    eventArr.forEach((cb) => cb.call(context, params))
+  }
+}
+
+export const eventBus = new EventBus()

@@ -7,7 +7,8 @@ import {
   hexToRgb,
   cMath,
   linkMath,
-  concatUrlParam
+  concatUrlParam,
+  deleteUrlParam
 } from '../index'
 
 test('用getQueryObject解析url参数', () => {
@@ -57,6 +58,17 @@ test('加减乘除', () => {
   expect(linkMath.input(1).add(7).subtract(2).multiply(3).divide(9).getResult()).toBe(2)
 })
 
+test('删除链接上的参数', () => {
+  expect(deleteUrlParam('https://www.baidu.com?c=3/#/about', 'a'))
+  .toBe('https://www.baidu.com?c=3/#/about')
+
+  expect(deleteUrlParam('https://www.baidu.com?c=3/#/about?a=1', 'c'))
+  .toBe('https://www.baidu.com/#/about?a=1')
+
+  expect(deleteUrlParam('https://www.baidu.com?c=3/#/about?a=1', 'a'))
+  .toBe('https://www.baidu.com?c=3/#/about')
+})
+
 test('往链接上拼接参数', () => {
   expect(concatUrlParam('https://www.baidu.com', {
     a: 1,
@@ -77,4 +89,8 @@ test('往链接上拼接参数', () => {
     a: 1,
     b: 2
   })).toBe('https://www.baidu.com?c=3/#/about?e=4&a=1&b=2')
+
+  expect(concatUrlParam('https://www.baidu.com?a=1', {
+    a: 2
+  })).toBe('https://www.baidu.com?a=2')
 })
