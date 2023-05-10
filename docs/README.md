@@ -197,10 +197,25 @@ linkMath.input(1).add(7).subtract(2).multiply(3).divide(9).getResult()
 // 2
 ```
 
+### deleteUrlParam
+> 移除链接上不需要的参数
+
+|  参数   |  类型  |
+|  ----  |  ---- |
+|  url  | key |
+
+```js
+import { deleteUrlParam } from 'charlie-tools'
+
+deleteUrlParam('https://www.baidu.com?a=1', 'a')
+// 'https://www.baidu.com'
+```
+
 ### concatUrlParam
 > 可以给链接添加参数，或者说给链接拼接额外参数
+
 |  参数   |  类型  |
-|  ----  |  ----  |
+|  ----  |  ---- |
 |  url  | params |
 ```js
 import { concatUrlParam } from 'charlie-tools'

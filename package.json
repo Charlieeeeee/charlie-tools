@@ -1,6 +1,6 @@
 {
   "name": "charlie-tools",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

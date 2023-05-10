@@ -59,6 +59,12 @@ test('加减乘除', () => {
 })
 
 test('删除链接上的参数', () => {
+  expect(deleteUrlParam('https://www.baidu.com/#/about?a=1', 'a'))
+  .toBe('https://www.baidu.com/#/about')
+
+  expect(deleteUrlParam('https://www.baidu.com/#/about?a=1&b=2', 'a'))
+  .toBe('https://www.baidu.com/#/about?b=2')
+
   expect(deleteUrlParam('https://www.baidu.com?c=3/#/about', 'a'))
   .toBe('https://www.baidu.com?c=3/#/about')
 
@@ -67,6 +73,12 @@ test('删除链接上的参数', () => {
 
   expect(deleteUrlParam('https://www.baidu.com?c=3/#/about?a=1', 'a'))
   .toBe('https://www.baidu.com?c=3/#/about')
+
+  expect(deleteUrlParam('https://www.baidu.com?a=1', 'a'))
+  .toBe('https://www.baidu.com')
+
+  expect(deleteUrlParam('https://www.baidu.com?a=1&b=2', 'a'))
+  .toBe('https://www.baidu.com?b=2')
 })
 
 test('往链接上拼接参数', () => {

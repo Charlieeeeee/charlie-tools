@@ -365,7 +365,23 @@ export function deleteUrlParam(url, key) {
   const searchQueryStr = query2String(searchParams)
 
   const hashQueryStr = query2String(hashParams)
-  return `${base}${searchQueryStr ? `?${searchQueryStr}` : ''}${hashStr ? `/#/${hashPath}${hashQueryStr ? `?${hashQueryStr}` : ''}` : ''}`
+  return `${base}${
+    searchQueryStr
+      ? `?${searchQueryStr}`
+      : ''
+  }${
+    hashStr
+      ? `${
+        !base.includes('/#/')
+          ? `/#/${hashPath}`
+          : ''
+      }${
+        hashQueryStr
+          ? `?${hashQueryStr}`
+          : ''
+      }`
+      : ''
+  }`
 }
 
 export class EventBus {
